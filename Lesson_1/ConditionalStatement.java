@@ -1,26 +1,31 @@
 public class ConditionalStatement {
     public static void main(String[] args) {
-        int vozrast = 21;
-        char pol = 'W';
-        char nameword = 'M';    
-        float rost = 1.70F;
-        if(vozrast > 20) {
+        int yourAge = 21;        
+        if(yourAge > 20) {
             System.out.println("Вы старше 20");
-         }         
-        if(pol == 'M') {
+         }  
+        
+        boolean youMale = true;            
+        if(youMale) {
              System.out.println("Вы мужчина");
-        }         
-        if(pol == 'W') {
-            System.out.println("Вы женщина");
-        }
-        if(rost < 1.80) {
+        } 
+
+        boolean youWoman = true;            
+        if(youWoman) {
+             System.out.println("Вы женщина");
+        } 
+        
+        float yourHeight = 1.70F;
+        if(yourHeight < 1.80) {
             System.out.println("Коротышка");
         } else{
             System.out.println("Высокий");
         }
-        if(nameword == 'M') {
+        
+        char nameWord = 'M';
+        if(nameWord == 'M') {
             System.out.println("Ты наверное Михаил");
-        } else if(nameword == 'I') {
+        } else if(nameWord == 'I') {
             System.out.println("Ты наверное Iван");
         } else{
             System.out.println("Мы не знаем кто ты");
