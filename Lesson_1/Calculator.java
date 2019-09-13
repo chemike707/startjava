@@ -1,19 +1,20 @@
 public class Calculator {
     public static void main(String[] args) {        
-        double number1 = 5;
-        char mathematicalOperation = '^';
-        double number2 = 7;                        
-        if(mathematicalOperation == '+') {
+        double number1 = 5.4;
+        char sign = '^';
+        double number2 = 2;
+                                
+        if(sign == '+') {
             System.out.println(number1 + number2);
-        } else if(mathematicalOperation == '-') {
+        } else if(sign == '-') {
             System.out.println(number1 - number2);
-        } else if(mathematicalOperation == '*') {
+        } else if(sign == '*') {
             System.out.println(number1 * number2);
-        } else if(mathematicalOperation == '/') {
+        } else if(sign == '/') {
             System.out.println(number1 / number2);
-        } else if(mathematicalOperation == '%'){
+        } else if(sign == '%'){
             System.out.println(number1 % number2);
-        } else if(mathematicalOperation == '^') {
+        } else if(sign == '^') {
             double result = 1;
             for(int i = 1; i <= number2; i++) {
                 result *= number1;
