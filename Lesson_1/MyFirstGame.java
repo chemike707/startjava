@@ -1,22 +1,22 @@
 public class MyFirstGame {
     public static void main(String[] args) {
-        int madeUp = 37;
-        int guessed = 54;        
-        if(guessed < madeUp) {
-            for(int i = guessed; i <= madeUp; i++) {
-                guessed = i;
-                if(guessed < madeUp) {
+        int randomNumber = 37;
+        int inputNumber = 54;        
+        if(inputNumber < randomNumber) {
+            for(int i = inputNumber; i <= randomNumber; i++) {
+                inputNumber = i;
+                if(inputNumber < randomNumber) {
                     System.out.println("Загаданное число больше " + i); 
-                } else if(guessed == madeUp) {
+                } else if(inputNumber == randomNumber) {
                     System.out.println("Загаданное число " + i);
                 } 
             }           
-        } else if(guessed > madeUp) {  
-            for(int i = guessed; i >= madeUp; i--) {
-                guessed = i;
-                if(guessed > madeUp) {
+        } else if(inputNumber > randomNumber) {  
+            for(int i = inputNumber; i >= randomNumber; i--) {
+                inputNumber = i;
+                if(inputNumber > randomNumber) {
                     System.out.println("Загаданное число меньше " + i); 
-                } else if(guessed == madeUp) {
+                } else if(inputNumber == randomNumber) {
                     System.out.println("Загаданное число " + i);
                 } 
             } 
