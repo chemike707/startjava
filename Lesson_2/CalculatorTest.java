@@ -10,26 +10,26 @@ public class CalculatorTest {
         String endCalculator;
         
         do {
-            System.out.println("Введите первое число:");
+            System.out.println("Р’РІРµРґРёС‚Рµ РїРµСЂРІРѕРµ С‡РёСЃР»Рѕ:");
             calculator.setNumber1(scan.nextInt());
         
-            System.out.println("Введите знак математической операции:");
+            System.out.println("Р’РІРµРґРёС‚Рµ Р·РЅР°Рє РјР°С‚РµРјР°С‚РёС‡РµСЃРєРѕР№ РѕРїРµСЂР°С†РёРё:");
             System.out.println(calculator.setSign('^'));
 
-            System.out.println("Введите второе число:");
+            System.out.println("Р’РІРµРґРёС‚Рµ РІС‚РѕСЂРѕРµ С‡РёСЃР»Рѕ:");
             calculator.setNumber2(scan.nextInt());
            
             calculator.calculate(); 
 
             do {
-                System.out.println("Хотите продолжить? [да/нет]: ");
+                System.out.println("РҐРѕС‚РёС‚Рµ РїСЂРѕРґРѕР»Р¶РёС‚СЊ? [РґР°/РЅРµС‚]: ");
                 endCalculator = scan.next();
-                if(endCalculator.equals("нет")) {
+                if(endCalculator.equals("no")) {
                 break;
                 }
-            } while(!endCalculator.equals("да"));   
+            } while(!endCalculator.equals("yes"));   
 
-        } while(endCalculator.equals("да"));
+        } while(endCalculator.equals("yes"));
     }   
 }
 
