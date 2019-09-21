@@ -4,17 +4,32 @@ public class CalculatorTest {
 
     public static void main(String[] args) { 
         Calculator calculator = new Calculator();
+        
         Scanner scan = new Scanner(System.in); 
-      
+
         String endCalculator;
+        
         do {
+            System.out.println("Введите первое число:");
+            calculator.setNumber1(scan.nextInt());
+        
+            System.out.println("Введите знак математической операции:");
+            System.out.println(calculator.setSign('^'));
+
+            System.out.println("Введите второе число:");
+            calculator.setNumber2(scan.nextInt());
+           
             calculator.calculate(); 
-            System.out.println("РҐРѕС‚РёС‚Рµ РїСЂРѕРґРѕР»Р¶РёС‚СЊ? [РґР°/РЅРµС‚]:");
-            endCalculator = scan.next(); 
-        } while (endCalculator == "РґР°");
-        if(endCalculator != "РґР°") {
-            System.out.println("РҐРѕС‚РёС‚Рµ РїСЂРѕРґРѕР»Р¶РёС‚СЊ? [РґР°/РЅРµС‚]:");
-        }
+
+            do {
+                System.out.println("Хотите продолжить? [да/нет]: ");
+                endCalculator = scan.next();
+                if(endCalculator.equals("нет")) {
+                break;
+                }
+            } while(!endCalculator.equals("да"));   
+
+        } while(endCalculator.equals("да"));
     }   
 }
 

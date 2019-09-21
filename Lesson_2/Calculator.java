@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Calculator { 
 
     private char sign;
@@ -30,25 +28,7 @@ public class Calculator {
         return this.sign = sign;
     }
 
-    // public String getEndCalculator() {
-    //     return endCalculator;
-    // }
-
-    // public void setEndCalculator(String endCalculator) {
-    //     this.endCalculator = endCalculator;
-    // }
-
     public void calculate() {
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Введите первое число");
-        setNumber1(scan.nextInt());
-        
-        System.out.println("Введите знак математической операции:");
-        System.out.println(setSign('^'));
-
-        System.out.println("Введите второе число число");
-        setNumber2(scan.nextInt());
-
         switch(sign) {
             case '+':   
                 System.out.println(number1 + number2);
@@ -66,13 +46,11 @@ public class Calculator {
                 System.out.println(number1 % number2);
                 break;
             case '^':   
-                if(sign == '^') {
-                    int result = 1;
-                    for(int i = 1; i <= number2; i++) {
-                        result *= number1;
-                    }    
-                    System.out.println(result);
+                int result = 1;
+                for(int i = 1; i <= number2; i++) {
+                result *= number1;
                 }
+                System.out.println(result);
                 break;
         }
     }
