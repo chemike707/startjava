@@ -4,10 +4,8 @@ public class CalculatorTest {
 
     public static void main(String[] args) { 
         Calculator calculator = new Calculator();
-        
         Scanner scan = new Scanner(System.in); 
-
-        String endCalculator;
+        String escCalculator;
         
         do {
             System.out.println("Введите первое число:");
@@ -23,13 +21,9 @@ public class CalculatorTest {
 
             do {
                 System.out.println("Хотите продолжить? [да/нет]: ");
-                endCalculator = scan.next();
-                if(endCalculator.equals("no")) {
-                break;
-                }
-            } while(!endCalculator.equals("yes"));   
-
-        } while(endCalculator.equals("yes"));
+                escCalculator = scan.next();
+            } while(!escCalculator.equals("yes") & !escCalculator.equals("no"));   
+        } while(escCalculator.equals("yes"));
     }   
 }
 
