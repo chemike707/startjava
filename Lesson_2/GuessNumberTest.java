@@ -1,26 +1,20 @@
 import java.util.Scanner;
 
 public class GuessNumberTest {
-    static String player1, player2;    
 
     public static void main(String[] args) { 
         Scanner scan = new Scanner(System.in);
-        
         System.out.println("Введите имя первого игрока:");
-        Player playerOne = new Player();
-        playerOne.setName(scan.next());
-        player1 = playerOne.getName();
-        
+        Player playerOne = new Player(scan.next());
+
         System.out.println("Введите имя второго игрока:");
-        Player playerTwo = new Player();
-        playerTwo.setName(scan.next());
-        player2 = playerTwo.getName();
+        Player playerTwo = new Player(scan.next());
 
         String escGame = "yes";
         do {
+            GuessNumber game = new GuessNumber(playerOne.getName(), playerTwo.getName(), playerOne.getNumber(), playerTwo.getNumber());
+            game.game();
             do {
-                GuessNumber game = new GuessNumber();
-                game.game();
                 System.out.println("Хотите продолжить? [да/нет]: ");
                 escGame = scan.next();
             } while(!escGame.equals("yes") & !escGame.equals("no"));
