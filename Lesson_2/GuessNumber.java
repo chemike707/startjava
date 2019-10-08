@@ -5,7 +5,6 @@ public class GuessNumber {
 
     private Player playerOne;
     private Player playerTwo;
-    private int number = 101;
     private int compNumber;
 
     public GuessNumber(Player playerOne, Player playerTwo) {
@@ -13,31 +12,36 @@ public class GuessNumber {
         this.playerTwo = playerTwo;
     }
 
-    public void game() {
+    public void startGame() {
         Random random = new Random();
-        compNumber = random.nextInt(100);
+        compNumber = random.nextInt(101);
         Scanner scan = new Scanner(System.in);
+        
         do {
-            if(compNumber != number) {
+            if(compNumber != playerOne.getNumber()) {
                 System.out.println(playerOne.getName() + " введи число");
-                number = playerOne.setNumber(scan.nextInt());
-                if(compNumber < number) {
+                playerOne.setNumber(scan.nextInt());
+                if(compNumber < playerOne.getNumber()) {
                     System.out.println("Загаданное число меньше");    
-                } else if(compNumber > number) {
+                } else if(compNumber > playerOne.getNumber()) {
                     System.out.println("Загаданное число больше");           
+                } else {
+                    break;
                 }
             }
 
-            if(compNumber != number) {
+            if(compNumber != playerTwo.getNumber()) {
                 System.out.println(playerTwo.getName() + " введи число");
-                number = playerTwo.setNumber(scan.nextInt());
-                if(compNumber < number) {
+                playerTwo.setNumber(scan.nextInt());
+                if(compNumber < playerTwo.getNumber()) {
                     System.out.println("Загаданное число меньше");    
-                } else if(compNumber > number) {
+                } else if(compNumber > playerTwo.getNumber()) {
                     System.out.println("Загаданное число больше");           
+                } else {
+                    break;
                 }
             }
-        } while(compNumber != number);
+        } while(true);
         System.out.println("Ты угадал");
     }    
 }
