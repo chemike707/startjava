@@ -10,10 +10,6 @@ public class Calculator {
         this.mathExpression = mathExpression;
     }
 
-    public String getMathExpression() {
-        return mathExpression;
-    }
-
     public void setNumberOne(int numberOne) {
         this.numberOne = numberOne;
     }
@@ -27,6 +23,11 @@ public class Calculator {
     }
 
     public void calculate() {
+        String[] breakTheLine = mathExpression.split(" ");
+        setNumberOne(Integer.parseInt(breakTheLine[0]));
+        setSign((breakTheLine[1]).charAt(0));
+        setNumberTwo(Integer.parseInt(breakTheLine[2]));
+
         switch(sign) {
             case '+':
                 System.out.println(numberOne + numberTwo);
