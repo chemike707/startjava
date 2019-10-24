@@ -6,7 +6,7 @@ public class Calculator {
     private int numberTwo;
     private char sign;
 
-    public  Calculator(String mathExpression) {
+    public Calculator(String mathExpression) {
         this.mathExpression = mathExpression;
     }
 
@@ -23,10 +23,10 @@ public class Calculator {
     }
 
     public void calculate() {
-        String[] breakTheLine = mathExpression.split(" ");
-        setNumberOne(Integer.parseInt(breakTheLine[0]));
-        setSign((breakTheLine[1]).charAt(0));
-        setNumberTwo(Integer.parseInt(breakTheLine[2]));
+        String[] expressionValue = mathExpression.split(" ");
+        setNumberOne(Integer.parseInt(expressionValue[0]));
+        setSign((expressionValue[1]).charAt(0));
+        setNumberTwo(Integer.parseInt(expressionValue[2]));
 
         switch(sign) {
             case '+':
