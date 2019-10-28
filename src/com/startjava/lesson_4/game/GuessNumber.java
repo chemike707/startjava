@@ -65,7 +65,6 @@ public class GuessNumber {
                     }
                     break;
                 } while (true);
-//        System.out.println("hui");
 
     }
 }
