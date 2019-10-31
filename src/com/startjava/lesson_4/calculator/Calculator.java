@@ -23,10 +23,10 @@ public class Calculator {
     }
 
     public void calculate() {
-        String[] expressionValue = mathExpression.split(" ");
-        setNumberOne(Integer.parseInt(expressionValue[0]));
-        setSign((expressionValue[1]).charAt(0));
-        setNumberTwo(Integer.parseInt(expressionValue[2]));
+        String[] expressionValues = mathExpression.split(" ");
+        setNumberOne(Integer.parseInt(expressionValues[0]));
+        setSign((expressionValues[1]).charAt(0));
+        setNumberTwo(Integer.parseInt(expressionValues[2]));
 
         switch(sign) {
             case '+':
