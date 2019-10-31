@@ -36,7 +36,6 @@ public class GuessNumber {
                 playerOne.setNumber(scan.nextInt());
 
                 playerOne.setNumbers(i);
-                System.out.println(Arrays.toString(playerOne.getNumbers()));
 
                 if(compNumber < playerOne.getNumber()) {
                     System.out.println("Загаданное число меньше");
@@ -54,7 +53,6 @@ public class GuessNumber {
                 playerTwo.setNumber(scan.nextInt());
 
                 playerTwo.setNumbers(i);
-                System.out.println(Arrays.toString(playerTwo.getNumbers()));
 
                 if(compNumber < playerTwo.getNumber()) {
                     System.out.println("Загаданное число меньше");
