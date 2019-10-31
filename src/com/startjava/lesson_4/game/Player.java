@@ -9,14 +9,15 @@ public class Player {
     public Player(String name) {
         this.name = name;
         number = -1;
+        numbers = new int[11];
     }
 
     public int[] getNumbers() {
         return numbers;
     }
 
-    public void setNumbers(int[] numbers) {
-        this.numbers = numbers;
+    public void setNumbers(int i) {
+            numbers[i] = number;
     }
 
     public String getName() {
