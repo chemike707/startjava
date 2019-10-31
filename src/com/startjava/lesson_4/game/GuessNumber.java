@@ -17,7 +17,7 @@ public class GuessNumber {
 
     public void startGame() {
         Random random = new Random();
-        compNumber = random.nextInt(11);
+        compNumber = random.nextInt(101);
         Scanner scan = new Scanner(System.in);
 
         System.out.println("У вас 10 попыток");
