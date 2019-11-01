@@ -1,23 +1,25 @@
 package com.startjava.lesson_4.game;
 
+import java.util.Arrays;
+
 public class Player {
 
     private String name;
     private int number;
-    private int[] numbers;
+    private int[] enteredNumbers ;
 
     public Player(String name) {
         this.name = name;
         number = -1;
-        numbers = new int[11];
+        enteredNumbers  = new int[10];
     }
 
     public int[] getNumbers() {
-        return numbers;
+        return Arrays.copyOf(enteredNumbers, enteredNumbers.length);
     }
 
     public void setNumbers(int i) {
-            numbers[i] = number;
+        enteredNumbers[i] = number;
     }
 
     public String getName() {
@@ -28,8 +30,8 @@ public class Player {
         return number;
     }
 
-    public int setNumber(int number) {
-        return this.number = number;
+    public void setNumber(int number) {
+        this.number = number;
     }
 }
 
