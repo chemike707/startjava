@@ -14,8 +14,8 @@ public class Player {
         enteredNumbers  = new int[10];
     }
 
-    public int[] getNumbers() {
-        return Arrays.copyOf(enteredNumbers, enteredNumbers.length);
+    public int[] getNumbers(int j) {
+        return Arrays.copyOf(enteredNumbers, j + 1);
     }
 
     public void setNumbers(int i) {
