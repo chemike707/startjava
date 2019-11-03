@@ -23,10 +23,6 @@ public class GuessNumber {
         }
     }
 
-    public void attemptsEnded() {
-
-    }
-
     public void startGame() {
         Random random = new Random();
         compNumber = random.nextInt(101);
