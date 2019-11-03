@@ -24,10 +24,10 @@ public class GuessNumber {
 
         for(int i = 0; i < 11; i++) {
             if(i > 9) {
-                System.out.println("У " + playerOne.getName() + " закончились попытки: " + Arrays.toString(playerOne.getNumbers()));
-                System.out.println("У " + playerTwo.getName() + " закончились попытки: " + Arrays.toString(playerTwo.getNumbers()));
-                Arrays.fill(playerOne.getNumbers(), 0, i, 0);
-                Arrays.fill(playerTwo.getNumbers(), 0, i, 0);
+                System.out.println("У " + playerOne.getName() + " закончились попытки: " + Arrays.toString(playerOne.getNumbers(i)));
+                System.out.println("У " + playerTwo.getName() + " закончились попытки: " + Arrays.toString(playerTwo.getNumbers(i)));
+                Arrays.fill(playerOne.getNumbers(i), 0, i, 0);
+                Arrays.fill(playerTwo.getNumbers(i), 0, i, 0);
                 break;
             }
 
@@ -43,7 +43,7 @@ public class GuessNumber {
                     System.out.println("Загаданное число больше");
                 } else {
                     System.out.println("игрок " + playerOne.getName() + " угадал число " + playerOne.getNumber() + " c " + (i + 1) + " попытки");
-                    Arrays.fill(playerOne.getNumbers(), 0, i, 0);
+                    Arrays.fill(playerOne.getNumbers(i), 0, i, 0);
                     break;
                 }
             }
@@ -60,7 +60,7 @@ public class GuessNumber {
                     System.out.println("Загаданное число больше");
                 } else {
                     System.out.println("игрок " + playerTwo.getName() + " угадал число " + playerTwo.getNumber() + " c " + (i + 1) + " попытки");
-                    Arrays.fill(playerTwo.getNumbers(), 0, i, 0);
+                    Arrays.fill(playerTwo.getNumbers(i), 0, i, 0);
                     break;
                 }
             }
