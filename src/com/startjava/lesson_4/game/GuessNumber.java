@@ -15,18 +15,23 @@ public class GuessNumber {
         this.playerTwo = playerTwo;
     }
 
-    public void numberCheck(int j) {
-        if(compNumber < j) {
+    public void numberCheck(int playerNumber) {
+        if(compNumber < playerNumber) {
             System.out.println("Загаданное число меньше");
-        } else if(compNumber > j) {
+        } else if(compNumber > playerNumber) {
             System.out.println("Загаданное число больше");
         }
+    }
+
+    public void enterNumber(String name, Player number) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println(name + " введи число");
+        number.setNumber(scan.nextInt());
     }
 
     public void startGame() {
         Random random = new Random();
         compNumber = random.nextInt(101);
-        Scanner scan = new Scanner(System.in);
 
         System.out.println("У вас 10 попыток");
 
@@ -40,11 +45,12 @@ public class GuessNumber {
             }
 
             if (compNumber != playerOne.getNumber()) {
-                System.out.println(playerOne.getName() + " введи число");
-                playerOne.setNumber(scan.nextInt());
-                playerOne.setNumbers(i);
+                enterNumber(playerOne.getName(), playerOne);
+
+                playerOne.setEnteredNumbers(i);
 
                 numberCheck(playerOne.getNumber());
+
                 if(compNumber == playerOne.getNumber()){
                     System.out.println("игрок " + playerOne.getName() + " угадал число " + playerOne.getNumber() + " c " + (i + 1) + " попытки");
                     Arrays.fill(playerOne.getNumbers(i), 0, i, 0);
@@ -53,11 +59,12 @@ public class GuessNumber {
             }
 
             if(compNumber != playerTwo.getNumber()) {
-                System.out.println(playerTwo.getName() + " введи число");
-                playerTwo.setNumber(scan.nextInt());
-                playerTwo.setNumbers(i);
+                enterNumber(playerTwo.getName(), playerTwo);
+
+                playerTwo.setEnteredNumbers(i);
 
                 numberCheck(playerTwo.getNumber());
+
                 if(compNumber == playerTwo.getNumber()) {
                     System.out.println("игрок " + playerTwo.getName() + " угадал число " + playerTwo.getNumber() + " c " + (i + 1) + " попытки");
                     Arrays.fill(playerTwo.getNumbers(i), 0, i, 0);
