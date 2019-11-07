@@ -6,7 +6,7 @@ public class Player {
 
     private String name;
     private int number;
-    private int[] enteredNumbers ;
+    private int[] enteredNumbers;
 
     public Player(String name) {
         this.name = name;
@@ -14,11 +14,11 @@ public class Player {
         enteredNumbers  = new int[10];
     }
 
-    public int[] getNumbers(int j) {
-        return Arrays.copyOf(enteredNumbers, j + 1);
+    public int[] getNumbers(int index) {
+        return Arrays.copyOf(enteredNumbers, index + 1);
     }
 
-    public void setNumbers(int i) {
+    public void setEnteredNumbers(int i) {
         enteredNumbers[i] = number;
     }
 
@@ -31,7 +31,7 @@ public class Player {
     }
 
     public void setNumber(int number) {
-        this.number = number;
+       this.number = number;
     }
 }
 
