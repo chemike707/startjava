@@ -6,20 +6,20 @@ public class Player {
 
     private String name;
     private int number;
-    private int[] enteredNumbers;
+    private int[] enteredNumber;
 
     public Player(String name) {
         this.name = name;
         number = -1;
-        enteredNumbers  = new int[10];
+        enteredNumber  = new int[10];
     }
 
     public int[] getNumbers(int index) {
-        return Arrays.copyOf(enteredNumbers, index + 1);
+        return Arrays.copyOf(enteredNumber, index + 1);
     }
 
-    public void setEnteredNumbers(int i) {
-        enteredNumbers[i] = number;
+    public void setEnteredNumber(int i) {
+        enteredNumber[i] = number;
     }
 
     public String getName() {
