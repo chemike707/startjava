@@ -15,19 +15,7 @@ public class GuessNumber {
         this.playerTwo = playerTwo;
     }
 
-    public void numberCheck(int playerNumber) {
-        if(compNumber < playerNumber) {
-            System.out.println("Загаданное число меньше");
-        } else if(compNumber > playerNumber) {
-            System.out.println("Загаданное число больше");
-        }
-    }
-
-    public void enterNumber(String name, Player number) {
-        Scanner scan = new Scanner(System.in);
-        System.out.println(name + " введи число");
-        number.setNumber(scan.nextInt());
-    }
+    private Scanner scan = new Scanner(System.in);
 
     public void startGame() {
         Random random = new Random();
@@ -44,33 +32,42 @@ public class GuessNumber {
                 break;
             }
 
-            if (compNumber != playerOne.getNumber()) {
-                enterNumber(playerOne.getName(), playerOne);
+            verification(playerOne, i);
 
-                playerOne.setEnteredNumbers(i);
+            numberAttempts(playerOne, i);
 
-                numberCheck(playerOne.getNumber());
+            verification(playerTwo, i);
 
-                if(compNumber == playerOne.getNumber()){
-                    System.out.println("игрок " + playerOne.getName() + " угадал число " + playerOne.getNumber() + " c " + (i + 1) + " попытки");
-                    Arrays.fill(playerOne.getNumbers(i), 0, i, 0);
-                    break;
-                }
-            }
+            numberAttempts(playerTwo, i);
 
-            if(compNumber != playerTwo.getNumber()) {
-                enterNumber(playerTwo.getName(), playerTwo);
+        }
+    }
 
-                playerTwo.setEnteredNumbers(i);
+    private void enterNumber(Player number) {
+        System.out.println(number.getName() + " введи число");
+        number.setNumber(scan.nextInt());
+    }
 
-                numberCheck(playerTwo.getNumber());
+    private void guessingHelp(int playerNumber) {
+        if(compNumber < playerNumber) {
+            System.out.println("Загаданное число меньше");
+        } else if(compNumber > playerNumber) {
+            System.out.println("Загаданное число больше");
+        }
+    }
 
-                if(compNumber == playerTwo.getNumber()) {
-                    System.out.println("игрок " + playerTwo.getName() + " угадал число " + playerTwo.getNumber() + " c " + (i + 1) + " попытки");
-                    Arrays.fill(playerTwo.getNumbers(i), 0, i, 0);
-                    break;
-                }
-            }
+    private void verification(Player player, int index) {
+        if(compNumber != player.getNumber()) {
+            enterNumber(player);
+            guessingHelp(player.getNumber());
+            player.setEnteredNumber(index);
+        }
+    }
+
+    private void numberAttempts(Player player, int index) {
+        if(compNumber == player.getNumber()) {
+            System.out.println("игрок " + player.getName() + " угадал число " + player.getNumber() + " c " + (index + 1) + " попытки");
+            Arrays.fill(player.getNumbers(index), 0, index, 0);
         }
     }
 }
