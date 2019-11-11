@@ -32,20 +32,16 @@ public class GuessNumber {
                 break;
             }
             enterNumber(playerOne);
-            if(compNumber != playerOne.getNumber()) {
-                fillArray(playerOne, i);
-                checkNumber(playerOne.getNumber());
-            }
+            checkNumber(playerOne.getNumber());
+            fillArray(playerOne, i);
             if(compNumber == playerOne.getNumber()) {
                 displayAttempts(playerOne, i);
                 clearArray(playerOne, i);
                 break;
             }
             enterNumber(playerTwo);
-            if(compNumber != playerTwo.getNumber()) {
-                fillArray(playerTwo, i);
-                checkNumber(playerTwo.getNumber());
-            }
+            checkNumber(playerTwo.getNumber());
+            fillArray(playerTwo, i);
             if(compNumber == playerTwo.getNumber()) {
                 displayAttempts(playerTwo, i);
                 clearArray(playerTwo, i);
@@ -59,16 +55,16 @@ public class GuessNumber {
         number.setNumber(scan.nextInt());
     }
 
-    private void fillArray(Player player, int index) {
-        player.setEnteredNumber(index);
-    }
-
     private void checkNumber(int playerNumber) {
         if(compNumber < playerNumber) {
             System.out.println("Загаданное число меньше");
         } else if(compNumber > playerNumber) {
             System.out.println("Загаданное число больше");
         }
+    }
+
+    private void fillArray(Player player, int index) {
+        player.setEnteredNumber(index);
     }
 
     private void displayAttempts(Player player, int index) {
