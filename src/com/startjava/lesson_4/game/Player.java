@@ -11,15 +11,15 @@ public class Player {
     public Player(String name) {
         this.name = name;
         number = -1;
-        enteredNumber  = new int[10];
+        enteredNumber = new int[10];
     }
 
     public int[] getNumbers(int index) {
         return Arrays.copyOf(enteredNumber, index + 1);
     }
 
-    public void setEnteredNumber(int i) {
-        enteredNumber[i] = number;
+    public void setEnteredNumber(int index) {
+        enteredNumber[index] = number;
     }
 
     public String getName() {
