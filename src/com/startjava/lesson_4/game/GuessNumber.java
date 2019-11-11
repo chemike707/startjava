@@ -32,14 +32,21 @@ public class GuessNumber {
                 break;
             }
 
-            verification(playerOne, i);
+            if(compNumber != playerOne.getNumber()) {
+                verification(playerOne, i);
+            }
+            if(compNumber == playerOne.getNumber()){
+                numberAttempts(playerOne, i);
+                break;
+            }
 
-            numberAttempts(playerOne, i);
-
-            verification(playerTwo, i);
-
-            numberAttempts(playerTwo, i);
-
+            if(compNumber != playerTwo.getNumber()) {
+                verification(playerTwo, i);
+            }
+            if(compNumber == playerTwo.getNumber()){
+                numberAttempts(playerTwo, i);
+                break;
+            }
         }
     }
 
@@ -57,17 +64,13 @@ public class GuessNumber {
     }
 
     private void verification(Player player, int index) {
-        if(compNumber != player.getNumber()) {
-            enterNumber(player);
-            guessingHelp(player.getNumber());
-            player.setEnteredNumber(index);
-        }
+        enterNumber(player);
+        player.setEnteredNumber(index);
+        guessingHelp(player.getNumber());
     }
 
     private void numberAttempts(Player player, int index) {
-        if(compNumber == player.getNumber()) {
-            System.out.println("игрок " + player.getName() + " угадал число " + player.getNumber() + " c " + (index + 1) + " попытки");
-            Arrays.fill(player.getNumbers(index), 0, index, 0);
-        }
+        System.out.println("игрок " + player.getName() + " угадал число " + player.getNumber() + " c " + (index + 1) + " попытки");
+        Arrays.fill(player.getNumbers(index), 0, index, 0);
     }
 }
