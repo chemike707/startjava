@@ -31,20 +31,24 @@ public class GuessNumber {
                 Arrays.fill(playerTwo.getNumbers(i), 0, i, 0);
                 break;
             }
-
+            enterNumber(playerOne);
             if(compNumber != playerOne.getNumber()) {
-                verification(playerOne, i);
+                fillArray(playerOne, i);
+                checkNumber(playerOne.getNumber());
             }
-            if(compNumber == playerOne.getNumber()){
-                numberAttempts(playerOne, i);
+            if(compNumber == playerOne.getNumber()) {
+                displayAttempts(playerOne, i);
+                clearArray(playerOne, i);
                 break;
             }
-
+            enterNumber(playerTwo);
             if(compNumber != playerTwo.getNumber()) {
-                verification(playerTwo, i);
+                fillArray(playerTwo, i);
+                checkNumber(playerTwo.getNumber());
             }
-            if(compNumber == playerTwo.getNumber()){
-                numberAttempts(playerTwo, i);
+            if(compNumber == playerTwo.getNumber()) {
+                displayAttempts(playerTwo, i);
+                clearArray(playerTwo, i);
                 break;
             }
         }
@@ -55,7 +59,11 @@ public class GuessNumber {
         number.setNumber(scan.nextInt());
     }
 
-    private void guessingHelp(int playerNumber) {
+    private void fillArray(Player player, int index) {
+        player.setEnteredNumber(index);
+    }
+
+    private void checkNumber(int playerNumber) {
         if(compNumber < playerNumber) {
             System.out.println("Загаданное число меньше");
         } else if(compNumber > playerNumber) {
@@ -63,14 +71,11 @@ public class GuessNumber {
         }
     }
 
-    private void verification(Player player, int index) {
-        enterNumber(player);
-        player.setEnteredNumber(index);
-        guessingHelp(player.getNumber());
+    private void displayAttempts(Player player, int index) {
+        System.out.println("игрок " + player.getName() + " угадал число " + player.getNumber() + " c " + (index + 1) + " попытки");
     }
 
-    private void numberAttempts(Player player, int index) {
-        System.out.println("игрок " + player.getName() + " угадал число " + player.getNumber() + " c " + (index + 1) + " попытки");
+    private void clearArray(Player player, int index) {
         Arrays.fill(player.getNumbers(index), 0, index, 0);
     }
 }
