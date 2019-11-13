@@ -10,12 +10,12 @@ public class GuessNumber {
     private Player playerTwo;
     private int compNumber;
 
+    private Scanner scan = new Scanner(System.in);
+
     public GuessNumber(Player playerOne, Player playerTwo) {
         this.playerOne = playerOne;
         this.playerTwo = playerTwo;
     }
-
-    private Scanner scan = new Scanner(System.in);
 
     public void startGame() {
         Random random = new Random();
@@ -31,22 +31,18 @@ public class GuessNumber {
                 Arrays.fill(playerTwo.getNumbers(i), 0, i, 0);
                 break;
             }
+
             enterNumber(playerOne);
-            checkNumber(playerOne.getNumber());
-            fillArray(playerOne, i);
-            if(compNumber == playerOne.getNumber()) {
-                displayAttempts(playerOne, i);
-                clearArray(playerOne, i);
-                break;
-            }
+            checkNumber(playerOne.getNumber(), playerOne, i);
+            if(compNumber == playerOne.getNumber()) break;
+            playerOne.setEnteredNumber(i);
+            clearNumbers(playerOne, i);
+
             enterNumber(playerTwo);
-            checkNumber(playerTwo.getNumber());
-            fillArray(playerTwo, i);
-            if(compNumber == playerTwo.getNumber()) {
-                displayAttempts(playerTwo, i);
-                clearArray(playerTwo, i);
-                break;
-            }
+            checkNumber(playerTwo.getNumber(), playerTwo, i);
+            if(compNumber == playerTwo.getNumber()) break;
+            playerTwo.setEnteredNumber(i);
+            clearNumbers(playerTwo, i);
         }
     }
 
@@ -55,23 +51,18 @@ public class GuessNumber {
         number.setNumber(scan.nextInt());
     }
 
-    private void checkNumber(int playerNumber) {
-        if(compNumber < playerNumber) {
+    private void checkNumber(int playerNumber, Player player, int index) {
+        if(compNumber == playerNumber) {
+            System.out.println("игрок " + player.getName() + " угадал число " + player.getNumber() + " c " + (index + 1) + " попытки");
+        }
+        else if(compNumber < playerNumber) {
             System.out.println("Загаданное число меньше");
-        } else if(compNumber > playerNumber) {
+        } else {
             System.out.println("Загаданное число больше");
         }
     }
 
-    private void fillArray(Player player, int index) {
-        player.setEnteredNumber(index);
-    }
-
-    private void displayAttempts(Player player, int index) {
-        System.out.println("игрок " + player.getName() + " угадал число " + player.getNumber() + " c " + (index + 1) + " попытки");
-    }
-
-    private void clearArray(Player player, int index) {
+    private void clearNumbers(Player player, int index) {
         Arrays.fill(player.getNumbers(index), 0, index, 0);
     }
 }
