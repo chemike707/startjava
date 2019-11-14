@@ -32,17 +32,15 @@ public class GuessNumber {
                 break;
             }
 
-            enterNumber(playerOne);
-            checkNumber(playerOne.getNumber(), playerOne, i);
-            if(compNumber == playerOne.getNumber()) break;
+            if(makeMove(playerOne, i)) {
+                break;
+            }
             playerOne.setEnteredNumber(i);
-            clearNumbers(playerOne, i);
 
-            enterNumber(playerTwo);
-            checkNumber(playerTwo.getNumber(), playerTwo, i);
-            if(compNumber == playerTwo.getNumber()) break;
+            if(makeMove(playerTwo, i)) {
+                break;
+            }
             playerTwo.setEnteredNumber(i);
-            clearNumbers(playerTwo, i);
         }
     }
 
@@ -51,18 +49,20 @@ public class GuessNumber {
         number.setNumber(scan.nextInt());
     }
 
-    private void checkNumber(int playerNumber, Player player, int index) {
-        if(compNumber == playerNumber) {
+    private boolean checkNumber(Player player, int index) {
+        if(compNumber == player.getNumber()) {
             System.out.println("игрок " + player.getName() + " угадал число " + player.getNumber() + " c " + (index + 1) + " попытки");
-        }
-        else if(compNumber < playerNumber) {
+            return true;
+        } else if(compNumber < player.getNumber()) {
             System.out.println("Загаданное число меньше");
         } else {
             System.out.println("Загаданное число больше");
         }
+        return false;
     }
 
-    private void clearNumbers(Player player, int index) {
-        Arrays.fill(player.getNumbers(index), 0, index, 0);
+    private boolean makeMove(Player player, int index) {
+        enterNumber(player);
+        return checkNumber(player, index);
     }
 }
