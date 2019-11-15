@@ -35,34 +35,34 @@ public class GuessNumber {
             if(makeMove(playerOne, i)) {
                 break;
             }
-            playerOne.setEnteredNumber(i);
 
             if(makeMove(playerTwo, i)) {
                 break;
             }
-            playerTwo.setEnteredNumber(i);
         }
     }
 
-    private void enterNumber(Player number) {
-        System.out.println(number.getName() + " введи число");
-        number.setNumber(scan.nextInt());
+    private boolean makeMove(Player player, int index) {
+        enterNumber(player, index);
+        return checkNumber(player, index);
+    }
+
+    private void enterNumber(Player player, int index) {
+        System.out.println(player.getName() + " введи число");
+        player.setEnteredNumber(index, scan.nextInt());
     }
 
     private boolean checkNumber(Player player, int index) {
-        if(compNumber == player.getNumber()) {
-            System.out.println("игрок " + player.getName() + " угадал число " + player.getNumber() + " c " + (index + 1) + " попытки");
+        if(compNumber == player.getEnteredNumber(index)) {
+            System.out.println("игрок " + player.getName() + " угадал число " + player.getEnteredNumber(index) + " c " + (index + 1) + " попытки");
+            System.out.println(Arrays.toString(player.getNumbers(index)));
             return true;
-        } else if(compNumber < player.getNumber()) {
+        }
+        else if(compNumber <  player.getEnteredNumber(index)) {
             System.out.println("Загаданное число меньше");
         } else {
             System.out.println("Загаданное число больше");
         }
         return false;
-    }
-
-    private boolean makeMove(Player player, int index) {
-        enterNumber(player);
-        return checkNumber(player, index);
     }
 }
