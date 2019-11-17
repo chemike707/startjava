@@ -20,12 +20,12 @@ public class Player {
         return enteredNumber[index];
     }
 
-    public int[] getNumbers(int index) {
-        return Arrays.copyOf(enteredNumber, index);
-    }
-
     public void setEnteredNumber(int index, int number) {
         this.enteredNumber[index] = number;
+    }
+
+    public int[] getNumbers(int index) {
+        return Arrays.copyOf(enteredNumber, index);
     }
 }
 
