@@ -35,7 +35,6 @@ public class GuessNumber {
             if(makeMove(playerOne, i)) {
                 break;
             }
-
             if(makeMove(playerTwo, i)) {
                 break;
             }
@@ -55,10 +54,12 @@ public class GuessNumber {
     private boolean checkNumber(Player player, int index) {
         if(compNumber == player.getEnteredNumber(index)) {
             System.out.println("игрок " + player.getName() + " угадал число " + player.getEnteredNumber(index) + " c " + (index + 1) + " попытки");
-            System.out.println(Arrays.toString(player.getNumbers(index)));
+            System.out.print(playerOne.getName());
+            System.out.println(Arrays.toString(playerOne.getNumbers(index + 1)));
+            System.out.print(playerTwo.getName());
+            System.out.println(Arrays.toString(playerTwo.getNumbers(index + 1)));
             return true;
-        }
-        else if(compNumber <  player.getEnteredNumber(index)) {
+        } else if(compNumber <  player.getEnteredNumber(index)) {
             System.out.println("Загаданное число меньше");
         } else {
             System.out.println("Загаданное число больше");
